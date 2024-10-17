@@ -1,0 +1,64 @@
+#formulaire {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+#bienvenu {
+    margin-bottom: 3vh;
+    text-align: center;
+}
+
+#submit {
+    background-color: darkolivegreen;
+    height: 5vh;
+    width: 100%;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  
+.infos {
+    width: 50%;
+    margin-left: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    width: 30vw;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+form input, form select {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+

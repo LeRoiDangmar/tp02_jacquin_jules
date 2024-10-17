@@ -1,0 +1,108 @@
+<div id="container">
+    <div id="form-wrapper">
+      <div id="formulaire">
+        <form id="creationCompte" (ngSubmit)="onSubmit(creationCompteForm)" #creationCompteForm="ngForm">
+          <h1 id="bienvenu">Bienvenue sur mon superbe formulaire</h1>
+  
+          <!-- Nom input with validation -->
+          <label for="nom">Entrez votre nom</label>
+          <input [(ngModel)]="nom" id="nom" name="nom" type="text" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['nom']?.valid" class="error">
+            Le nom est requis.
+          </div>
+  
+          <!-- Prenom input with validation -->
+          <label for="prenom">Entrez votre prénom</label>
+          <input [(ngModel)]="prenom" id="prenom" name="prenom" type="text" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['prenom']?.valid" class="error">
+            Le prénom est requis.
+          </div>
+  
+          <!-- Adresse input -->
+          <label for="adresse">Entrez votre adresse</label>
+          <input [(ngModel)]="adresse" id="adresse" name="adresse" type="text" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['adresse']?.valid" class="error">
+            L'adresse est requise.
+          </div>
+  
+          <!-- Code Postal input with pattern validation -->
+          <label for="cp">Entrez votre code postal</label>
+          <input [(ngModel)]="cp" id="cp" name="cp" type="text" pattern="^\d{5}$" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['cp']?.valid" class="error">
+            Veuillez entrer un code postal valide (5 chiffres).
+          </div>
+  
+          <!-- Ville input -->
+          <label for="ville">Entrez votre ville</label>
+          <input [(ngModel)]="ville" id="ville" name="ville" type="text" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['ville']?.valid" class="error">
+            La ville est requise.
+          </div>
+  
+          <!-- Téléphone input with pattern validation -->
+          <label for="telephone">Entrez votre numéro de téléphone</label>
+          <input [(ngModel)]="telephone" id="telephone" name="telephone" type="text" pattern="^(?:\+33|0)([1-9])(?:\s?\d{2}){4}$" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['telephone']?.valid" class="error">
+            Veuillez entrer un numéro de téléphone valide.
+          </div>
+  
+          <!-- Email input with native type validation -->
+          <label for="email">Entrez votre adresse email</label>
+          <input [(ngModel)]="email" id="email" name="email" type="email" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['email']?.valid" class="error">
+            Veuillez entrer une adresse email valide.
+          </div>
+  
+          <!-- Civilité select -->
+          <label for="civilite">Entrez votre civilité</label>
+          <select [(ngModel)]="civilite" id="civilite" name="civilite" required>
+            <option value="">Choisissez</option>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+            <option value="autre">Autre</option>
+          </select>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['civilite']?.valid" class="error">
+            La civilité est requise.
+          </div>
+  
+          <!-- Password input -->
+          <label for="password">Entrez votre mot de passe</label>
+          <input [(ngModel)]="password" id="password" name="password" type="password" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['password']?.valid" class="error">
+            Le mot de passe est requis.
+          </div>
+  
+          <!-- Confirm Password input -->
+          <label for="passwordValider">Confirmez votre mot de passe</label>
+          <input [(ngModel)]="passwordValider" id="passwordValider" name="passwordValider" type="password" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['passwordValider']?.valid" class="error">
+            La confirmation du mot de passe est requise.
+          </div>
+
+          <label for="login">Pseudo</label>
+          <input [(ngModel)]="login" id="login" name="login" type="text" required>
+          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['login']?.valid" class="error">
+            Pseudo requis.
+          </div>
+  
+          <!-- Submit button -->
+          <input id="submit" type="submit" value="Créer mon compte">
+  
+        </form>
+      </div>
+    </div>
+  
+    <!-- Infos section only displays if form is submitted -->
+    <div class="infos" *ngIf="isSubmitted">
+      <p>Nom : {{nom}}</p>
+      <p>Prénom : {{prenom}}</p>
+      <p>Adresse : {{adresse}}</p>
+      <p>Code postal : {{cp}}</p>
+      <p>Ville : {{ville}}</p>
+      <p>Téléphone : {{telephone}}</p>
+      <p>Email : {{email}}</p>
+      <p>Civilité : {{civilite}}</p>
+      <p>Login : {{login}}</p>
+    </div>
+  </div>
+  
