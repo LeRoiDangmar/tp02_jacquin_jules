@@ -23,9 +23,9 @@ export class FormComponent {
     passwordValider : String = "";
     login : String = "";
 
-    isSubmitted: boolean = false; // Flag to track form submission
+    isSubmitted: boolean = false; 
 
-    // onSubmit will set isSubmitted only if the form is valid
+ 
     onSubmit(form: any) {
       if (form.valid) {
         this.isSubmitted = true;
