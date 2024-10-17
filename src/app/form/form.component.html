@@ -62,11 +62,11 @@
           <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['password']?.valid" class="error">
             Le mot de passe est requis.
           </div>
-
+  
           <label for="passwordValider">Confirmez votre mot de passe</label>
           <input [(ngModel)]="passwordValider" id="passwordValider" name="passwordValider" type="password" required>
-          <div *ngIf="creationCompteForm.submitted && !creationCompteForm.controls['passwordValider']?.valid" class="error">
-            La confirmation du mot de passe est requise.
+          <div *ngIf="!passwordsMatch()" class="error">
+            Les mots de passe ne correspondent pas.
           </div>
 
           <label for="login">Pseudo</label>
@@ -75,7 +75,8 @@
             Pseudo requis.
           </div>
 
-          <input id="submit" type="submit" value="Créer mon compte">
+          <input id="submit" type="submit" value="Créer mon compte" 
+               [disabled]="!passwordsMatch()">
   
         </form>
       </div>

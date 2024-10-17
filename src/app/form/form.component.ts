@@ -25,9 +25,13 @@ export class FormComponent {
 
     isSubmitted: boolean = false; 
 
- 
+
+    passwordsMatch(): boolean {
+      return this.password === this.passwordValider;
+    }
+  
     onSubmit(form: any) {
-      if (form.valid) {
+      if (form.valid && this.passwordsMatch()) {
         this.isSubmitted = true;
       }
     }
